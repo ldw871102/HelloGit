@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>VelocityTest_0104</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.vm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Define Velocity template handler -->
+<servlet>
+  <servlet-name>velocity</servlet-name>
+  <servlet-class>
+    org.apache.velocity.tools.view.VelocityViewServlet
+  </servlet-class>
+
+
+  <!-- 
+    Unless you plan to put your tools.xml and velocity.properties
+    under different folders or give them different names, then these
+    two init-params are unnecessary.  The
+    VelocityViewServlet will automatically look for these files in
+    the following locations.
+  --><!--
+  <init-param>
+    <param-name>org.apache.velocity.toolbox</param-name>
+    <param-value>/WEB-INF/tools.xml</param-value>
+  </init-param>
+
+  <init-param>
+    <param-name>org.apache.velocity.properties</param-name>
+    <param-value>/WEB-INF/velocity.properties</param-value>
+  </init-param>-->
+</servlet>
+
+<!-- Map *.vm files to Velocity -->
+<servlet-mapping>
+  <servlet-name>velocity</servlet-name>
+  <url-pattern>*.vm</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+		<servlet-name>tohtml</servlet-name>
+		<servlet-class>com.wdxy.servlet.ToHtml</servlet-class>
+		<init-param>
+			<description>path:项目的根目录</description>
+			<param-name>path</param-name>
+			<param-value>E:\WorkSpace\VelocityTest_0104\WebContent</param-value>
+		</init-param>
+		<init-param>
+			<description>url:需要静态化的页面,多个用逗号分隔</description>
+			<param-name>url</param-name>
+			<param-value>/index.jsp,/hello.jsp</param-value>
+		</init-param>
+		<init-param>
+			<description>staticHtmlRefreshTime:刷新时间单位分钟</description>
+			<param-name>staticHtmlRefreshTime</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+		<servlet-name>tohtml</servlet-name>
+		<url-pattern>*.tohtml</url-pattern>
+</servlet-mapping>
+
+</web-app>

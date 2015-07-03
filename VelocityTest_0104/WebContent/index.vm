@@ -1,0 +1,7 @@
+#set($name="Velocity")
+<html><head><title>velocity</title>
+</head>
+<body>
+    hello world $name :
+</body>
+</html>
