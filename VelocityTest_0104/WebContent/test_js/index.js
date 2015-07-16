@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
         pathname+="cart-2.html";
     }
 
-    path.exists(pathname,function(exists){
+    fs.exists(pathname,function(exists){
         if(exists){
             switch(path.extname(pathname)){
                 case ".html":
