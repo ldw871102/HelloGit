@@ -2,7 +2,7 @@
 '''
 Created on 2015-2-11
 
-@author: Administrator
+@author: david
 '''
 a=10
 print a 
