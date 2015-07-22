@@ -10,6 +10,7 @@ L1=[1,2,3]
 L1.append(3)
 #test windows git shell
 #test linux git shell
+#fetch
 print L1
 print 'hello World'
 print '你好'
