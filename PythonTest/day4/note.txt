@@ -1,0 +1,9 @@
+PYTHONPATH会被sys.path之前导入到python中
+
+import day4.my_abs_mod后，要想使用my_abs_mod.py里的方法，这样使用
+	day4.my_abs_mod.my_abs(-8)
+另一种方法是,直接导入module里的指定方法或全部
+
+from day4.my_abs_mod import my_abs 导入指定方法
+from day4.my_abs_mod import *  导入全部
+这两种导入模式，这样使用：直接使用　my_abs(-8)
